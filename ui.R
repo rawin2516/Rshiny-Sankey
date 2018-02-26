@@ -13,7 +13,27 @@ tabPanel("Data Import",
                         ),
                         mainPanel(uiOutput("tb1"))
                         ) ),
-  tabPanel("Graph",
+  tabPanel("Graph",fluidPage(
+  tags$head(
+    tags$style(HTML("
+      .form-group {
+        display: inline-block;
+        vertical-align: top;
+        background: #f0f0f0;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        margin-bottom: 2px;
+      }
+      .shiny-input-container:not(.shiny-input-container-inline) {
+        width: initial;
+      }
+      .irs {
+        width: 150px;
+      }
+    "))
+  ),
   titlePanel(paste0("Shiny sankeyD3 network v",packageVersion("sankeyD3"))),
   fluidRow(
     radioButtons("LinkGroup", "LinkGroup", choices = c("source_name", "target_name", "none"), selected = "none", inline = TRUE),
@@ -46,6 +66,7 @@ tabPanel("Data Import",
   fluidRow(
       sankeyNetworkOutput("sankey")
   )
+)
 )
 )
 )
