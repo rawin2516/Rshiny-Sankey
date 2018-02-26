@@ -14,7 +14,7 @@ tabPanel("Data Import",
                         ),
                         mainPanel(uiOutput("tb1"))
                         ) ),
-  tabPanel(tags$head(
+  tabPanel("Graph",tags$head(
     tags$style(HTML("
       .form-group {
         display: inline-block;
