@@ -4,8 +4,7 @@ library(sankeyD3)
 shinyUI(navbarPage("Sankey Testing by Awin",
 tabPanel("Data Import",
                         sidebarLayout(sidebarPanel( fileInput("file","Upload your CSV",multiple = FALSE),
-                                                    tags$hr()
-                                                   ,
+                                                    tags$hr(),
                                                     h5(helpText("Select the read.table parameters below")),
                                                     checkboxInput(inputId = 'header', label = 'Header', value = FALSE),
                                                     checkboxInput(inputId = "stringAsFactors", "stringAsFactors", FALSE),
@@ -14,26 +13,7 @@ tabPanel("Data Import",
                         ),
                         mainPanel(uiOutput("tb1"))
                         ) ),
-  tabPanel("Graph",tags$head(
-    tags$style(HTML("
-      .form-group {
-        display: inline-block;
-        vertical-align: top;
-        background: #f0f0f0;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 5px;
-        padding-top: 5px;
-        margin-bottom: 2px;
-      }
-      .shiny-input-container:not(.shiny-input-container-inline) {
-        width: initial;
-      }
-      .irs {
-        width: 150px;
-      }
-    "))
-  ),
+  tabPanel("Graph",
   titlePanel(paste0("Shiny sankeyD3 network v",packageVersion("sankeyD3"))),
   fluidRow(
     radioButtons("LinkGroup", "LinkGroup", choices = c("source_name", "target_name", "none"), selected = "none", inline = TRUE),
@@ -69,5 +49,3 @@ tabPanel("Data Import",
 )
 )
 )
-
-
